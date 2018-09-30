@@ -54,9 +54,18 @@ public class SubsequenciaComumMaisLonga {
 		
 	}
 	
-	public void executar() {
+	public Resultado executar() {
+		long tempoInicio = System.currentTimeMillis();
 		calcularMatrizCusto();
-		this.subsequencia = montarString(sequencia1.length(), sequencia2.length());
+		long tempoFim = System.currentTimeMillis();
+		long tempoTotal = tempoFim - tempoInicio;
+		String subsequencia = montarString(sequencia1.length(), sequencia2.length());
+		Resultado resultado = new Resultado();
+		resultado.setSequencia1(sequencia1);
+		resultado.setSequencia2(sequencia2);
+		resultado.setSubsequencia(subsequencia);
+		resultado.setTempo(tempoTotal);
+		return resultado;
 	}
 	
 	public String getSubsequencia() {
